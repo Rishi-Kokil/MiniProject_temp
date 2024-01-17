@@ -5,7 +5,7 @@ import { Header, Footer, Hero, Features } from "../containers";
 import { Feature, Navbar } from "../components";
 
 const divStyle = {
-    backgroundImage: 'url("../assests/hero_bg_img.png")',
+    backgroundImage: 'url("/assests/hero_bg_img.png")',
     backgroundSize: 'cover',  // You can adjust this property as needed
     backgroundPosition: 'center center',  // You can adjust this property as needed
 };

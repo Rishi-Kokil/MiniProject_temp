@@ -30,10 +30,10 @@ const ImageUpload = () => {
                 method: 'POST',
                 body: formData,
                 headers: {
-                  // Make sure to set the Content-Type header to multipart/form-data
-                  'Content-Type': 'multipart/form-data',
+                    // Make sure to set the Content-Type header to multipart/form-data
+                    'Content-Type': 'multipart/form-data',
                 },
-              });
+            });
 
             // Handle the response from the server
             console.log('Image uploaded successfully:', response.data);
@@ -45,53 +45,45 @@ const ImageUpload = () => {
 
     return (
         <div className="flex flex-col items-center justify-center p-8 border-2 border-dashed border-gray-300 rounded cursor-pointer transition duration-300 hover:border-blue-500">
-            <label
-                htmlFor="file-input"
-                className="text-lg font-bold text-gray-700 mt-4"
-            >
-                {selectedFile ? 'File Selected' : 'Choose a File'}
-            </label>
 
-            {/* <div
-                className=""
-                onClick={handleDivClick}
-            >
-                <input
-                    type="file"
-                    id="file-input"
-                    className="hidden"
-                    onChange={handleFileChange}
-                />
-            </div> */}
+            {
+                selectedFile
+                    ? 'File Selected'
+                    : <>
+                        <label
+                            className="text-center font-semibold text-[18px] m-2"
+                        >Choose Image for Upload </label>
+                        <div
+                            className="relative border-dashed border-2 border-gray-300 p-4 rounded-md cursor-pointer hover:border-blue-500"
+                            onClick={handleDivClick}
+                        >
 
-            <div
-                className="relative border-dashed border-2 border-gray-300 p-4 rounded-md cursor-pointer hover:border-blue-500"
-                onClick={handleDivClick}
-            >
-                <input
-                    type="file"
-                    id="file-input"
-                    className="hidden"
-                    onChange={handleFileChange}
-                />
-                <div className="text-center">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        className="mx-auto h-12 w-12 text-gray-400"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M12 4v16m8-8H4"
-                        />
-                    </svg>
-                    <p className="mt-1 text-sm text-gray-600">Click or drag to upload</p>
-                </div>
-            </div>
+                            <input
+                                type="file"
+                                id="file-input"
+                                className="hidden"
+                                onChange={handleFileChange}
+                            />
+                            <div className="text-center">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                    className="mx-auto h-12 w-12 text-gray-400"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2"
+                                        d="M12 4v16m8-8H4"
+                                    />
+                                </svg>
+                                <p className="mt-1 text-sm text-gray-600">Click or drag to upload</p>
+                            </div>
+                        </div>
+                    </>
+            }
 
             <button
                 onClick={handleUpload}
